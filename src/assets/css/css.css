@@ -1,0 +1,42 @@
+/*.tBtn {
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+.tBtn:selected {
+
+    -fx-background-color: white;
+}
+
+
+.tBtn .text {
+
+    -fx-fill: Black;
+
+    -fx-background-radius: 0 0 0 0;
+}
+
+.tBtn .text:selected {
+    -fx-fill: white;
+}*/
+
+
+
+.toggle-button{
+    -fx-text-fill: #000000;
+    -fx-background-color: rgba(255, 255, 0, 0);
+}
+
+
+.toggle-button:selected{
+    -fx-text-fill: #000000;
+    -fx-background-color: rgb(255, 255, 255);
+}
+.table-view .column-header{
+    -fx-size:40px;
+    -fx-background-color: #0984e3;
+    -fx-font-size: 14;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: white;
+}

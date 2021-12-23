@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="registrationPane" prefHeight="771.0" prefWidth="980.0" style="-fx-background-color: white; -fx-background-radius: 40;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationFormController">
+   <children>
+      <ImageView fitHeight="59.0" fitWidth="70.0" layoutX="461.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-student-registration-100.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#f2f2f2" height="200.0" layoutX="23.0" layoutY="235.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="936.0" />
+      <Separator layoutX="561.0" layoutY="42.0" prefHeight="4.0" prefWidth="311.0" style="-fx-background-color: black;" />
+      <Separator layoutX="114.0" layoutY="44.0" prefHeight="4.0" prefWidth="311.0" style="-fx-background-color: black;" />
+      <JFXTextField labelFloat="true" layoutX="27.0" layoutY="85.0" prefHeight="43.0" prefWidth="143.0" promptText="Reg.No">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="417.0" layoutY="162.0" prefHeight="43.0" prefWidth="381.0" promptText="Email">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="204.0" layoutY="74.0" prefHeight="52.0" prefWidth="311.0" promptText="Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="27.0" layoutY="161.0" prefHeight="43.0" prefWidth="354.0" promptText="Address">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="547.0" layoutY="88.0" prefHeight="37.0" prefWidth="143.0" promptText="Age">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="741.0" layoutY="79.0" prefHeight="43.0" prefWidth="186.0" promptText="Contact number">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox labelFloat="true" layoutX="41.0" layoutY="248.0" prefHeight="52.0" prefWidth="199.0" promptText="Programme Id" />
+      <JFXTextField labelFloat="true" layoutX="750.0" layoutY="266.0" prefHeight="31.0" prefWidth="168.0" promptText="Fee(LKR)">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="276.0" layoutY="266.0" prefHeight="31.0" prefWidth="168.0" promptText="Program">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="490.0" layoutY="266.0" prefHeight="31.0" prefWidth="199.0" promptText="Duration">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <TableView layoutX="32.0" layoutY="578.0" prefHeight="172.0" prefWidth="917.0" stylesheets="@../assets/css/css.css">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXComboBox labelFloat="true" layoutX="38.0" layoutY="314.0" prefHeight="43.0" prefWidth="206.0" promptText="Programme Id" />
+      <JFXComboBox labelFloat="true" layoutX="44.0" layoutY="374.0" prefHeight="43.0" prefWidth="199.0" promptText="Programme Id" />
+      <JFXTextField labelFloat="true" layoutX="276.0" layoutY="320.0" prefHeight="31.0" prefWidth="168.0" promptText="Program">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="276.0" layoutY="377.0" prefHeight="31.0" prefWidth="168.0" promptText="Program">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="490.0" layoutY="317.0" prefHeight="43.0" prefWidth="199.0" promptText="Duration">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="750.0" layoutY="320.0" prefHeight="31.0" prefWidth="168.0" promptText="Fee(LKR)">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="490.0" layoutY="374.0" prefHeight="43.0" prefWidth="199.0" promptText="Duration">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField labelFloat="true" layoutX="741.0" layoutY="377.0" prefHeight="31.0" prefWidth="168.0" promptText="Fee(LKR)">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="244.0" layoutY="444.0" prefHeight="37.0" prefWidth="137.0" style="-fx-background-color: #0984e3; -fx-background-radius: 10;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="425.0" layoutY="444.0" prefHeight="37.0" prefWidth="137.0" style="-fx-background-radius: 10; -fx-background-color: #55efc4;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="608.0" layoutY="444.0" prefHeight="37.0" prefWidth="137.0" style="-fx-background-radius: 10; -fx-background-color: #ff7675;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="59.0" layoutX="32.0" layoutY="505.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="401.0" />
+      <ImageView fitHeight="43.0" fitWidth="48.0" layoutX="360.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8-search-100.png" />
+         </image>
+      </ImageView>
+      <JFXTextField layoutX="44.0" layoutY="519.0" prefHeight="31.0" prefWidth="303.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXTextField>
+      <RadioButton layoutX="872.0" layoutY="140.0" mnemonicParsing="false" text="Male">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="872.0" layoutY="173.0" mnemonicParsing="false" text="Female">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </RadioButton>
+   </children>
+</AnchorPane>
