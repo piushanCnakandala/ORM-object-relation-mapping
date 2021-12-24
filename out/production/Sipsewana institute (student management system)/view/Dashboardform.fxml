@@ -9,6 +9,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="847.0" prefWidth="1312.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardformController">
    <children>
@@ -76,5 +77,10 @@
             </ImageView>
          </graphic>
       </ToggleButton>
+      <Text layoutX="58.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sipsewana institute" wrappingWidth="183.6708984375">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

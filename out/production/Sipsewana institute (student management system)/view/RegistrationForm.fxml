@@ -73,6 +73,10 @@
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
       <JFXComboBox labelFloat="true" layoutX="38.0" layoutY="314.0" prefHeight="43.0" prefWidth="206.0" promptText="Programme Id" />

@@ -10,5 +10,6 @@
     <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
     <orderEntry type="library" name="jfoenix-8.0.81" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
