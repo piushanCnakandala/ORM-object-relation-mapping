@@ -2,6 +2,8 @@ package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 public class Program implements SuperEntity{
@@ -10,6 +12,9 @@ public class Program implements SuperEntity{
     private String programName;
     private String duration;
     private double fee;
+
+    @ManyToMany
+    private List<Student> students;
 
     public Program() {
     }

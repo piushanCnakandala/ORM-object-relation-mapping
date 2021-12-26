@@ -9,7 +9,7 @@ import java.util.List;
 public interface SuperDAO<Entity extends SuperEntity,Id> {
     boolean add(Entity entity);
     boolean update(Entity entity);
-    boolean delete(ID s);
+    boolean delete(Id s);
 
     List<Entity> find();
 

@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.persistence.Id;
 import java.util.List;
 
 public class ProgramDAOImpl implements ProgramDAO {
@@ -37,7 +38,7 @@ public class ProgramDAOImpl implements ProgramDAO {
     }
 
     @Override
-    public boolean delete(ID s) {
+    public boolean delete(String s) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         Program program = session.get(Program.class, s);
