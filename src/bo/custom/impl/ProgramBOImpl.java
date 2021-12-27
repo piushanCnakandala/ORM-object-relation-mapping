@@ -15,6 +15,7 @@ import java.util.List;
 
 public class ProgramBOImpl implements ProgramBO {
     ProgramDAOImpl programDAO = (ProgramDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
+
     @Override
     public boolean add(ProgramDTO programDTO) {
         return programDAO.add(new Program(
@@ -29,9 +30,9 @@ public class ProgramBOImpl implements ProgramBO {
     public ObservableList<ProgramTM> find() {
         List<Program> list = programDAO.find();
         ObservableList<ProgramTM> dtoArrayList = FXCollections.observableArrayList();
-       // ProgramDTO programDTO=null;
+        // ProgramDTO programDTO=null;
 
-        for (Program program:list){
+        for (Program program : list) {
             dtoArrayList.add(new ProgramTM(
                     program.getProgramId(),
                     program.getProgramName(),
@@ -55,5 +56,20 @@ public class ProgramBOImpl implements ProgramBO {
                 programDTO.getDuration(),
                 programDTO.getFee()
         ));
+    }
+
+    @Override
+    public ObservableList<ProgramTM> search(String value) {
+        List<Program> list = programDAO.searchPrograms(value);
+        ObservableList<ProgramTM> dtoArrayList = FXCollections.observableArrayList();
+        for (Program program : list) {
+            dtoArrayList.add(new ProgramTM(
+                    program.getProgramId(),
+                    program.getProgramName(),
+                    program.getDuration(),
+                    program.getFee()
+            ));
+        }
+        return dtoArrayList;
     }
 }

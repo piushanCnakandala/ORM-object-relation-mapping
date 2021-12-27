@@ -62,7 +62,7 @@
          </font>
       </JFXButton>
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="59.0" layoutX="28.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="401.0" />
-      <JFXTextField layoutX="43.0" layoutY="406.0" onKeyReleased="#searchOnKeyReleased" prefHeight="31.0" prefWidth="303.0">
+      <JFXTextField fx:id="txtSearch" layoutX="43.0" layoutY="406.0" onKeyReleased="#searchOnKeyReleased" prefHeight="31.0" prefWidth="303.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

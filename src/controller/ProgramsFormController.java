@@ -28,6 +28,7 @@ public class ProgramsFormController {
     public TableColumn colProgram;
     public TableColumn colDuration;
     public TableColumn colFee;
+    public JFXTextField txtSearch;
 
 
     ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
@@ -43,6 +44,8 @@ public class ProgramsFormController {
             new Alert(Alert.AlertType.CONFIRMATION, "PROGRAMME ADDED").show();
             try {
                showProgrammeOnTable();
+               clear();
+
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -67,6 +70,7 @@ public class ProgramsFormController {
             new Alert(Alert.AlertType.CONFIRMATION, "Program Updated").show();
             try {
               showProgrammeOnTable();
+              clear();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -83,8 +87,10 @@ public class ProgramsFormController {
 
         if (programBO.delete(programId)) {
             new Alert(Alert.AlertType.CONFIRMATION, "Programme is removed").show();
+
             try {
               showProgrammeOnTable();
+              clear();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -96,6 +102,10 @@ public class ProgramsFormController {
     }
 
     public void clearOnAction(ActionEvent actionEvent) {
+       clear();
+    }
+
+    public void clear(){
         txtProgramId.clear();
         txtFee.clear();
         txtProgramName.clear();
@@ -103,6 +113,8 @@ public class ProgramsFormController {
     }
 
     public void searchOnKeyReleased(KeyEvent keyEvent) {
+        ObservableList<ProgramTM>search=programBO.search(txtSearch.getText());
+        tblPrograms.setItems(search);
     }
 
     public void showProgrammeOnTable() throws SQLException, ClassNotFoundException {

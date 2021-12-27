@@ -60,4 +60,19 @@ public class ProgramDAOImpl implements ProgramDAO {
         session.close();
         return list;
     }
+
+    @Override
+    public List<Program> searchPrograms(String value) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("FROM Program p WHERE p.programId LIKE ?1");
+        query.setParameter(1, '%' + value + '%');
+        List list = query.list();
+        System.out.println("java");
+        transaction.commit();
+        session.close();
+        return list;
+
+    }
+
 }
