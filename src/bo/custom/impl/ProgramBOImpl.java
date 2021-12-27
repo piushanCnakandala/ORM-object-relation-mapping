@@ -6,6 +6,9 @@ import dao.custom.impl.ProgramDAOImpl;
 import dto.ProgramDTO;
 import dto.StudentDTO;
 import entity.Program;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import view.tm.ProgramTM;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,20 +26,20 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
-    public List<ProgramDTO> find() {
+    public ObservableList<ProgramTM> find() {
         List<Program> list = programDAO.find();
-        ArrayList<ProgramDTO> dtoArrayList= new ArrayList<>();
-        ProgramDTO programDTO=null;
+        ObservableList<ProgramTM> dtoArrayList = FXCollections.observableArrayList();
+       // ProgramDTO programDTO=null;
 
         for (Program program:list){
-            dtoArrayList.add(new ProgramDTO(
+            dtoArrayList.add(new ProgramTM(
                     program.getProgramId(),
                     program.getProgramName(),
                     program.getDuration(),
                     program.getFee()
             ));
         }
-        return null;
+        return dtoArrayList;
     }
 
     @Override

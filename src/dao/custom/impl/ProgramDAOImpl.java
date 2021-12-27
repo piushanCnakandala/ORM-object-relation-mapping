@@ -34,7 +34,7 @@ public class ProgramDAOImpl implements ProgramDAO {
 
         transaction.commit();
         session.close();
-        return false;
+        return true;
     }
 
     @Override

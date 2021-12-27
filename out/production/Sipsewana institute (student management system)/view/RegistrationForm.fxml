@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -137,12 +138,15 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXTextField>
-      <RadioButton fx:id="genderMale" layoutX="872.0" layoutY="140.0" mnemonicParsing="false" text="Male">
+      <RadioButton fx:id="genderMale" layoutX="872.0" layoutY="140.0" mnemonicParsing="false" selected="true" text="Male">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="gender" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="genderFemale" layoutX="872.0" layoutY="173.0" mnemonicParsing="false" text="Female">
+      <RadioButton fx:id="genderFemale" layoutX="872.0" layoutY="173.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$gender">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
