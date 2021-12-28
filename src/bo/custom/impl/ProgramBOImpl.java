@@ -72,4 +72,14 @@ public class ProgramBOImpl implements ProgramBO {
         }
         return dtoArrayList;
     }
+
+    @Override
+    public List<String> getAllProgramIds() {
+        return programDAO.getAllProgrammeId();
+    }
+
+    @Override
+    public ProgramDTO getProgrsmDetails(String id) {
+        return programDAO.getProgramList(id);
+    }
 }

@@ -3,6 +3,7 @@ package dao.custom.impl;
 import Util.FactoryConfiguration;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import dao.custom.ProgramDAO;
+import dto.ProgramDTO;
 import entity.Program;
 import entity.Student;
 import org.hibernate.Session;
@@ -73,6 +74,48 @@ public class ProgramDAOImpl implements ProgramDAO {
         session.close();
         return list;
 
+    }
+
+    @Override
+    public List<String> getAllProgrammeId() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT p.programId FROM Program p");
+        List<String> list = query.list();
+
+        transaction.commit();
+        session.close();
+        return list;
+    }
+
+    @Override
+    public ProgramDTO getProgramList(String id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Program p WHERE p.programId = ?1");
+        query.setParameter(1, id);
+        List<Program> resultList = query.getResultList();
+
+        transaction.commit();
+        session.close();
+
+        ProgramDTO programDTO = null;
+
+        if (!resultList.isEmpty()) {
+            for (Program list : resultList
+            ) {
+                programDTO = new ProgramDTO(
+                        list.getProgramName(),
+                        list.getDuration(),
+                        list.getFee()
+                );
+            }
+            return programDTO;
+        } else {
+            return null;
+        }
     }
 
 }

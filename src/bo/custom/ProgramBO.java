@@ -15,4 +15,6 @@ public interface ProgramBO extends SuperBO {
     boolean delete(String id);
     boolean update(ProgramDTO programDTO);
     ObservableList<ProgramTM> search(String value);
+    List<String> getAllProgramIds();
+    ProgramDTO getProgrsmDetails(String id);
 }
