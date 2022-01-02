@@ -25,32 +25,32 @@
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#f2f2f2" height="200.0" layoutX="23.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="936.0" />
       <Separator layoutX="561.0" layoutY="42.0" prefHeight="4.0" prefWidth="311.0" style="-fx-background-color: black;" />
       <Separator layoutX="114.0" layoutY="44.0" prefHeight="4.0" prefWidth="311.0" style="-fx-background-color: black;" />
-      <JFXTextField fx:id="txtRegNumber" labelFloat="true" layoutX="27.0" layoutY="85.0" prefHeight="43.0" prefWidth="143.0" promptText="Reg.No">
+      <JFXTextField fx:id="txtRegNumber" labelFloat="true" layoutX="29.0" layoutY="85.0" onKeyReleased="#OnKeyReleased" prefHeight="43.0" prefWidth="143.0" promptText="Reg.No">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="417.0" layoutY="162.0" prefHeight="43.0" prefWidth="381.0" promptText="Email">
+      <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="417.0" layoutY="162.0" onKeyReleased="#OnKeyReleased" prefHeight="43.0" prefWidth="381.0" promptText="Email">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="204.0" layoutY="74.0" prefHeight="52.0" prefWidth="311.0" promptText="Name">
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="206.0" layoutY="74.0" onKeyReleased="#OnKeyReleased" prefHeight="52.0" prefWidth="311.0" promptText="Name">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="27.0" layoutY="161.0" prefHeight="43.0" prefWidth="354.0" promptText="Address">
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="27.0" layoutY="161.0" onKeyReleased="#OnKeyReleased" prefHeight="43.0" prefWidth="354.0" promptText="Address">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAge" labelFloat="true" layoutX="547.0" layoutY="88.0" prefHeight="37.0" prefWidth="143.0" promptText="Age">
+      <JFXTextField fx:id="txtAge" labelFloat="true" layoutX="549.0" layoutY="88.0" onKeyReleased="#OnKeyReleased" prefHeight="37.0" prefWidth="143.0" promptText="Age">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="741.0" layoutY="79.0" prefHeight="43.0" prefWidth="186.0" promptText="Contact number">
+      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="741.0" layoutY="79.0" onKeyReleased="#OnKeyReleased" prefHeight="43.0" prefWidth="186.0" promptText="Contact number">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -114,7 +114,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXTextField>
-      <JFXButton buttonType="RAISED" layoutX="114.0" layoutY="453.0" onAction="#registerOnAction" prefHeight="37.0" prefWidth="137.0" style="-fx-background-color: #0984e3; -fx-background-radius: 10;" text="Register" textFill="WHITE">
+      <JFXButton fx:id="btnRegister" buttonType="RAISED" layoutX="114.0" layoutY="453.0" onAction="#registerOnAction" prefHeight="37.0" prefWidth="137.0" style="-fx-background-color: #0984e3; -fx-background-radius: 10;" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>

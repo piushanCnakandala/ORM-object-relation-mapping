@@ -1,8 +1,10 @@
 package controller;
 
+import Util.Validation;
 import bo.BOFactory;
 import bo.custom.impl.ProgramBOImpl;
 import bo.custom.impl.StudentBOImpl;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -15,13 +17,16 @@ import javafx.event.ActionEvent;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import view.tm.StudentTM;
 
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class RegistrationFormController {
     private final ProgramBOImpl programBO = (ProgramBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.PROGRAM);
@@ -59,11 +64,22 @@ public class RegistrationFormController {
     public JFXCheckBox check2;
     public JFXCheckBox check3;
     public JFXTextField txtSearch;
+    public JFXButton btnRegister;
     String cmb1;
     String cmb2;
     String cmb3;
     StudentBOImpl studentBO = (StudentBOImpl) BOFactory.getBoFactory().getBo(BOFactory.BoTypes.STUDENT);
     StudentDAOImpl studentDAO = (StudentDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
+
+    LinkedHashMap<JFXTextField, Pattern> map = new LinkedHashMap<>();
+    Pattern studentIdPattern = Pattern.compile("^(R)[-]?[0-9]{3}$");
+    Pattern studentNamePattern = Pattern.compile("^[A-z ]{1,30}$");
+    Pattern studentAddressPattern = Pattern.compile("^[A-z0-9/]{6,30}$");
+    Pattern studentTeleNumberPattern = Pattern.compile("^[0-9]{10}$");
+    Pattern studentAgePattern = Pattern.compile("^[0-9]{2}$");
+    Pattern studentEmailPattern = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+
+
 
     public String selectGender() {
         if (genderMale.isSelected()) {
@@ -141,6 +157,7 @@ if (studentDAO.update(txtRegNumber.getText(),cmb1)){
 
         loadProgramId();
         setDisable();
+        storeValidations();
         try {
             showDeatilsOnTable();
         } catch (SQLException throwables) {
@@ -287,5 +304,27 @@ if (studentDAO.update(txtRegNumber.getText(),cmb1)){
         cmdProgrammId2.setValue("");
         cmdProgrammId3.setValue("");
 
+    }
+
+    private void storeValidations() {
+        map.put(txtRegNumber,studentIdPattern);
+        map.put(txtName,studentNamePattern);
+        map.put(txtAge,studentAgePattern);
+        map.put(txtContact,studentTeleNumberPattern );
+        map.put(txtAddress,studentAddressPattern );
+        map.put(txtEmail,studentEmailPattern);
+    }
+
+    public void OnKeyReleased(KeyEvent keyEvent) {
+       btnRegister.setDisable(true);
+        Object response = Validation.validate(map,btnRegister,"Green");
+        if (keyEvent.getCode()== KeyCode.ENTER) {
+            if (response instanceof TextField){
+                TextField error  = (TextField) response;
+                error.requestFocus();
+            }else if (response instanceof Boolean){
+                new Alert(Alert.AlertType.CONFIRMATION, "Done").show();
+            }
+        }
     }
 }
