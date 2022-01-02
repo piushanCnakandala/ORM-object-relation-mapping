@@ -2,7 +2,7 @@ package dao;
 
 import dao.custom.impl.ProgramDAOImpl;
 import dao.custom.impl.StudentDAOImpl;
-import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
+import dao.custom.impl.QueryDaoImpl;
 
 public class DAOFactory {
     public static DAOFactory daoFactory;
@@ -15,7 +15,7 @@ public class DAOFactory {
         }
         return daoFactory;
     }
-    public SuperDAO getDAO(DAOTypes types){
+    public proDA0 getDAO(DAOTypes types){
         switch (types){
             case STUDENT :
                 return new StudentDAOImpl();
@@ -23,9 +23,11 @@ public class DAOFactory {
                 return new ProgramDAOImpl();
             default:
                 return null;
+            case QUERY:
+                return new QueryDaoImpl();
         }
     }
     public enum DAOTypes{
-        STUDENT,PROGRAM
+        STUDENT,PROGRAM,QUERY
     }
 }

@@ -3,6 +3,7 @@ package dao.custom.impl;
 import Util.FactoryConfiguration;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import dao.custom.StudentDAO;
+import entity.Program;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -59,5 +60,60 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return list;
 
+    }
+
+    @Override
+    public boolean register(Student student, String cmb1, String cmb2, String cmb3) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        if (cmb1 != null && !cmb1.trim().isEmpty()){
+            Program program1 = session.get(Program.class, cmb1);
+            student.getProgramList().add(program1);
+        }
+        if (cmb2 != null && !cmb2.trim().isEmpty()){
+            Program program2 = session.get(Program.class, cmb2);
+            student.getProgramList().add(program2);
+        }
+        if (cmb3 != null && !cmb3.trim().isEmpty()){
+            Program program3 = session.get(Program.class, cmb3);
+            student.getProgramList().add(program3);
+        }
+        session.save(student);
+        transaction.commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean deleteRegister(Student student, String cmb1, String cmb2, String cmb3) {
+        return false;
+    }
+
+    @Override
+    public List<Student> searchStudent(String value) {
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("FROM Student s WHERE s.regNo LIKE ?1");
+        query.setParameter(1, '%' + value + '%');
+        List list = query.list();
+
+        transaction.commit();
+        session.close();
+        return list;
+
+    }
+
+    @Override
+    public boolean update(String studentRegNo, String cmb1) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        int i =session.createNativeQuery("INSERT INTO STUDENT_PROGRAM VALUE(?,?)").setParameter(1,studentRegNo).setParameter(2,cmb1).executeUpdate();
+
+         transaction.commit();
+         session.close();
+        return true;
     }
 }

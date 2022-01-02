@@ -19,7 +19,7 @@
       </ImageView>
       <Separator layoutX="99.0" layoutY="54.0" prefHeight="4.0" prefWidth="354.0" style="-fx-background-color: black;" />
       <Separator layoutX="578.0" layoutY="50.0" prefHeight="4.0" prefWidth="315.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblStudentDeatils" layoutX="26.0" layoutY="192.0" prefHeight="200.0" prefWidth="929.0" stylesheets="@../assets/css/css.css">
+      <TableView fx:id="tblStudentDeatils" layoutX="26.0" layoutY="192.0" onMouseClicked="#onMouseClick" prefHeight="200.0" prefWidth="929.0" stylesheets="@../assets/css/css.css">
         <columns>
           <TableColumn fx:id="colRegNo" prefWidth="115.0" text="Reg.No" />
           <TableColumn fx:id="colRegName" prefWidth="121.0" text="Name" />
@@ -39,7 +39,7 @@
          </columns>
       </TableView>
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="WHITE" height="59.0" layoutX="37.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="401.0" />
-      <JFXTextField layoutX="52.0" layoutY="98.0" onKeyReleased="#serachOnKeyReleased" prefHeight="31.0" prefWidth="303.0">
+      <JFXTextField fx:id="txtSearch" layoutX="52.0" layoutY="98.0" onKeyReleased="#serachOnKeyReleased" prefHeight="31.0" prefWidth="303.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

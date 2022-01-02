@@ -3,6 +3,7 @@ package bo.custom.impl;
 import bo.custom.ProgramBO;
 import dao.DAOFactory;
 import dao.custom.impl.ProgramDAOImpl;
+import dao.custom.impl.QueryDaoImpl;
 import dto.ProgramDTO;
 import dto.StudentDTO;
 import entity.Program;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class ProgramBOImpl implements ProgramBO {
     ProgramDAOImpl programDAO = (ProgramDAOImpl) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.PROGRAM);
-
+   QueryDaoImpl queryDAO=(QueryDaoImpl)  DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
     @Override
     public boolean add(ProgramDTO programDTO) {
         return programDAO.add(new Program(
@@ -82,4 +83,25 @@ public class ProgramBOImpl implements ProgramBO {
     public ProgramDTO getProgrsmDetails(String id) {
         return programDAO.getProgramList(id);
     }
+
+    @Override
+    public ObservableList<ProgramTM> findStudentProgram(String value) {
+        List<Program> list = queryDAO.findProgramDetails(value);
+        ObservableList<ProgramTM> dtoArrayList = FXCollections.observableArrayList();
+
+        ProgramDTO programDTO = null;
+
+        for (Program program : list
+        ) {
+            dtoArrayList.add(new ProgramTM(
+                    program.getProgramId(),
+                    program.getProgramName(),
+                    program.getDuration(),
+                    program.getFee()
+            ));
+
+        }
+        return dtoArrayList;
+    }
+
 }
